@@ -27,7 +27,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-const prefix = 'a';
+const prefix = '-';
 var table = require('table').table
 var ti={}  
 ,spee={}
@@ -784,7 +784,7 @@ message.react("?")
  }}});
  client.on('message', message => {
   if(!message.channel.guild) return;
-if(message.content.startsWith('abc')) {
+if(message.content.startsWith('bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -824,7 +824,7 @@ msg.delete();
 });
 client.on('message', message => {
    if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'bk')) {
+if(message.content.startsWith(prefix + 'obc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -832,13 +832,13 @@ let BcList = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setAuthor(`محتوى الرساله ${args}`)
 .setDescription(`برودكاست بـ امبد ??\nبرودكاست بدون امبد? \nلديك دقيقه للأختيار قبل الغاء البرودكاست`)
-if (!args) return message.reply('**يجب عليك كتابة كلمة او ??ملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
+if (!args) return message.reply('**يجب عليك كتابة كلمة او 21ملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
 msg.react('??')
-.then(() => msg.react('?'))
-.then(() =>msg.react('??'))
+.then(() => msg.react('1'))
+.then(() =>msg.react('2'))
  
-let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
-let NormalBcFilter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
+let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '2' && user.id === message.author.id;
+let NormalBcFilter = (reaction, user) => reaction.emoji.name === '1' && user.id === message.author.id;
  
 let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
 let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
@@ -1018,7 +1018,7 @@ client.on('message', msg => {
   command = command.slice(prefix.length);
   let args = msg.content.split(" ").slice(1);
 
-    if(command === "clr") {
+    if(command === "مسح") {
         const emoji = client.emojis.find("name", "wastebasket")
     let textxt = args.slice(0).join("");
     if(msg.member.hasPermission("MANAGE_MESSAGES")) {
@@ -1087,7 +1087,7 @@ var args = message.content.split(" ").slice(1);
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
     if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**للأسف لا أمتلك صلاحية** `MANAGE_MASSAGEES`');
-    let muterole = message.guild.roles.find(`name`, "muted");
+    let muterole = message.guild.roles.find(`name`, "اسكت");
     //start of create role
     if(!muterole){
       try{
@@ -1127,7 +1127,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
   let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if(!toMute) return message.channel.sendMessage("**عليك المنشن أولاّ**:x: ");
 
-  let role = message.guild.roles.find (r => r.name === "muted");
+  let role = message.guild.roles.find (r => r.name === "اتكلم");
   
   if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("**لم يتم اعطاء هذه شخص ميوت من الأساس**:x:")
 
@@ -1148,7 +1148,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "kick") {
+  if (command == "طرد") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
@@ -1183,7 +1183,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "ban") {
+  if (command == "بان") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
@@ -1203,7 +1203,7 @@ message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! 
 });
 client.login('NDgwNzM4NTIzNjk2MjAxNzI5.Dl9PIA.48CAMtPWvyvZawa9M-KqwtvVLlY');
 client.on('message', message => {
-       if(message.content === prefix + "mutechannel") {
+       if(message.content === prefix + "mc") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
@@ -1211,11 +1211,11 @@ client.on('message', message => {
             SEND_MESSAGES: false
 
               }).then(() => {
-                  message.reply("**__تم تقفيل الشات__ :white_check_mark: **")
+                  message.reply("**__ | تم قفل الشات بنجاح__ :lock:  **")
               });
                 }
 //FIRE BOT
-    if(message.content === prefix + "unmutechannel") {
+    if(message.content === prefix + "umc") {
                         if(!message.channel.guild) return message.reply('** This command only for servers**');
 
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
@@ -1223,7 +1223,7 @@ client.on('message', message => {
             SEND_MESSAGES: true
 
               }).then(() => {
-                  message.reply("**__تم فتح الشات__:white_check_mark:**")
+                  message.reply("**__| تم فتح الشات بنجاح__:unlock:**")
               });
     }
        
