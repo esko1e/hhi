@@ -834,11 +834,11 @@ let BcList = new Discord.RichEmbed()
 .setDescription(`برودكاست بـ امبد ??\nبرودكاست بدون امبد? \nلديك دقيقه للأختيار قبل الغاء البرودكاست`)
 if (!args) return message.reply('**يجب عليك كتابة كلمة او 21ملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
 msg.react('??')
-.then(() => msg.react('1'))
-.then(() =>msg.react('2'))
+.then(() => msg.react('?'))
+.then(() =>msg.react('??'))
  
-let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '2' && user.id === message.author.id;
-let NormalBcFilter = (reaction, user) => reaction.emoji.name === '1' && user.id === message.author.id;
+let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
+let NormalBcFilter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
  
 let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
 let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
