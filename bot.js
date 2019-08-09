@@ -243,8 +243,7 @@ client.on('message', async message => {
     
     message.channel.send(`**:atm: | ${message.author.username}, you received your :yen: ${amount} credits!**`).then(() => {
         coolDown.add(message.author.id);
-    });`*`  Welcome To You EL3SABA :link:
-`*` ID : [user] 
+    });
     
     setTimeout(() => {
        coolDown.remove(message.author.id);
@@ -1212,7 +1211,7 @@ client.on('message', message => {
             SEND_MESSAGES: false
 
               }).then(() => {
-                  message.reply("**__ | تم قفل الشات بنجاح__ :lock:  **")
+                  message.reply("**__:lock: | تم قفل الشات بنجاح__**")
               });
                 }
 //FIRE BOT
@@ -1224,7 +1223,7 @@ client.on('message', message => {
             SEND_MESSAGES: true
 
               }).then(() => {
-                  message.reply("**__| تم فتح الشات بنجاح__:unlock:**")
+                  message.reply("**__:unlock: | تم فتح الشات بنجاح__**")
               });
     }
        
