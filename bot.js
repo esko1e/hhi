@@ -153,7 +153,7 @@ ${prefix}فوائد ونصائح  / هل تعلم
 ${prefix}يعطيك عقابات قاسية / عقاب 
 =.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.
 welcome يتم الترحيب فى روم باسم
-G.setwelcomer <text channel name> لاختيار روم للترحيب
+G.setwelcomer <welcome> لاختيار روم للترحيب
 ${prefix}voiceonline / لتفعيل روم الفويس اونلاين
 **
    
@@ -243,7 +243,8 @@ client.on('message', async message => {
     
     message.channel.send(`**:atm: | ${message.author.username}, you received your :yen: ${amount} credits!**`).then(() => {
         coolDown.add(message.author.id);
-    });
+    });`*`  Welcome To You EL3SABA :link:
+`*` ID : [user] 
     
     setTimeout(() => {
        coolDown.remove(message.author.id);
